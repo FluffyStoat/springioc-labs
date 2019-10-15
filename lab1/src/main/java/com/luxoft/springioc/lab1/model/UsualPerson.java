@@ -1,5 +1,6 @@
 package com.luxoft.springioc.lab1.model;
 
+import java.util.List;
 import java.util.Objects;
 
 public class UsualPerson implements Person {
@@ -9,6 +10,8 @@ public class UsualPerson implements Person {
     private String name;
 
     private Country country;
+
+    private List<String> phoneNumbers;
 
     public UsualPerson() {
         name = "Default name";
@@ -71,6 +74,11 @@ public class UsualPerson implements Person {
             + "Height: " + height + "\n"
             + "Country: " + country + "\n"
             + "Is Programmer?: " + isProgrammer + "\n";
+        if (phoneNumbers != null) {
+            StringBuilder sb = new StringBuilder("Phone numbers:\n");
+            phoneNumbers.forEach(n -> sb.append(n).append("\n"));
+            s = s + sb.toString();
+        }
         return s;
     }
 
@@ -97,5 +105,13 @@ public class UsualPerson implements Person {
         result = 31 * result + (isProgrammer ? 1 : 0);
         result = 31 * result + (country != null ? country.hashCode() : 0);
         return result;
+    }
+
+    public List<String> getPhoneNumbers() {
+        return phoneNumbers;
+    }
+
+    public void setPhoneNumbers(List<String> phoneNumbers) {
+        this.phoneNumbers = phoneNumbers;
     }
 }
