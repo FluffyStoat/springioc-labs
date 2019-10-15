@@ -13,7 +13,7 @@
         <constructor-arg ref="russian" index="4"/>
     </bean>
 
-    <bean id="americanPerson" class="com.luxoft.springioc.lab1.model.UsualPerson" scope="prototype" autowire="byName">
+    <bean id="americanPerson" class="com.luxoft.springioc.lab1.model.UsualPerson" scope="prototype">
         <constructor-arg value="29" index="0"/>
         <constructor-arg value="173" index="1"/>
         <constructor-arg value="true" index="2"/>
