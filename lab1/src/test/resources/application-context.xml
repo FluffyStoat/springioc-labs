@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="test" class="com.luxoft.springioc.lab1.model.HelloWorldTest" scope="prototype"/>
+
+    <bean id="russianPerson" class="com.luxoft.springioc.lab1.model.UsualPerson" scope="prototype">
+        <constructor-arg value="35" index="0"/>
+        <constructor-arg value="175" index="1"/>
+        <constructor-arg value="true" index="2"/>
+        <constructor-arg value="Peter Petrov" index="3"/>
+        <constructor-arg ref="russian" index="4"/>
+    </bean>
+
+    <bean id="americanPerson" class="com.luxoft.springioc.lab1.model.UsualPerson" scope="prototype" autowire="byName">
+        <constructor-arg value="29" index="0"/>
+        <constructor-arg value="173" index="1"/>
+        <constructor-arg value="true" index="2"/>
+        <constructor-arg value="John Smith" index="3"/>
+        <constructor-arg ref="usa" index="4"/>
+    </bean>
+
+    <bean id="russian" class="com.luxoft.springioc.lab1.model.Country">
+        <property name="id" value="1"/>
+        <property name="name" value="Russia"/>
+        <property name="codeName" value="RU"/>
+    </bean>
+
+    <bean id="usa" class="com.luxoft.springioc.lab1.model.Country">
+        <constructor-arg value="2" />
+        <constructor-arg value="Usa" />
+        <constructor-arg value="US" />
+    </bean>
+
+</beans>

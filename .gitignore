@@ -1,0 +1,6 @@
+.gradle/
+.idea/
+build
+*.iml
+/lab1/out
+/lab1/build
