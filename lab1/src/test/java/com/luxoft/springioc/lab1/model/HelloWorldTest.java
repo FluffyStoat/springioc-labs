@@ -5,10 +5,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import javax.annotation.Resource;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -24,11 +27,16 @@ public class HelloWorldTest {
 	private Person russianPerson;
 	@Autowired
 	private Person americanPerson;
+    @Resource(name = "canadian")
+    private Person canadianPerson;
+    @Autowired
+    private Person defaultPerson;
 
 	private Person expectedRussianPerson;
 	private Person expectedAmericanPerson;
 
-	private AbstractApplicationContext context;
+
+    private AbstractApplicationContext context;
 
 	@Before
 	public void setUp() {
@@ -55,7 +63,8 @@ public class HelloWorldTest {
 
 		System.out.println("Russian Autowired:\n" + russianPerson);
 		System.out.println("American Autowired:\n" + americanPerson);
-
+        System.out.println("Canadian Resource:\n" + canadianPerson);
+        System.out.println("Default:\n" + defaultPerson);
 	}
 
 	private UsualPerson getRussianPerson() {

@@ -11,7 +11,7 @@ public class UsualPerson implements Person {
     private Country country;
 
     public UsualPerson() {
-
+        name = "Default name";
     }
 
     public UsualPerson(int age, float height, boolean isProgrammer, String name, Country country) {
@@ -20,6 +20,10 @@ public class UsualPerson implements Person {
         this.isProgrammer = isProgrammer;
         this.name = name;
         this.country = country;
+    }
+
+    public static UsualPerson createInstance() {
+        return new UsualPerson();
     }
 
     public void setIsProgrammer(boolean isProgrammer) {

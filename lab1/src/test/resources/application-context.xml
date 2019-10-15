@@ -8,18 +8,29 @@
         <constructor-arg value="175" index="1"/>
         <constructor-arg value="true" index="2"/>
         <constructor-arg value="Peter Petrov" index="3"/>
-        <constructor-arg ref="russian" index="4"/>
+        <constructor-arg ref="russia" index="4"/>
     </bean>
 
     <bean id="americanPerson" class="com.luxoft.springioc.lab1.model.UsualPerson" scope="prototype">
-        <constructor-arg value="29" index="0"/>
-        <constructor-arg value="173" index="1"/>
-        <constructor-arg value="true" index="2"/>
-        <constructor-arg value="John Smith" index="3"/>
-        <constructor-arg ref="usa" index="4"/>
+        <property name="age" value="29"/>
+        <property name="height" value="173"/>
+        <property name="programmer" value="true"/>
+        <property name="name" value="John Smith"/>
+        <property name="country" ref="usa"/>
     </bean>
 
-    <bean id="russian" class="com.luxoft.springioc.lab1.model.Country">
+    <bean id="canadianPerson" name="canadian" class="com.luxoft.springioc.lab1.model.UsualPerson" scope="prototype">
+        <property name="age" value="29"/>
+        <property name="name" value="John Smith"/>
+        <property name="country" ref="canada"/>
+    </bean>
+
+    <bean id="defaultPerson" class="com.luxoft.springioc.lab1.model.UsualPerson" scope="prototype"
+          factory-method="createInstance">
+        <property name="country" ref="default"/>
+    </bean>
+
+    <bean id="russia" class="com.luxoft.springioc.lab1.model.Country">
         <property name="id" value="1"/>
         <property name="name" value="Russia"/>
         <property name="codeName" value="RU"/>
@@ -29,6 +40,18 @@
         <constructor-arg value="2" />
         <constructor-arg value="Usa" />
         <constructor-arg value="US" />
+    </bean>
+
+    <bean id="canada" class="com.luxoft.springioc.lab1.model.Country">
+        <constructor-arg value="3" />
+        <constructor-arg value="Canada" />
+        <constructor-arg value="Ca" />
+    </bean>
+
+    <bean id="default" class="com.luxoft.springioc.lab1.model.Country">
+        <constructor-arg value="4" />
+        <constructor-arg value="Default" />
+        <constructor-arg value="Def" />
     </bean>
 
 </beans>
