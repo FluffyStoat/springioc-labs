@@ -5,7 +5,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
@@ -35,7 +34,6 @@ public class HelloWorldTest {
 	private Person expectedRussianPerson;
 	private Person expectedAmericanPerson;
 
-
     private AbstractApplicationContext context;
 
 	@Before
@@ -49,6 +47,7 @@ public class HelloWorldTest {
 	public void testInitPerson() {
 		UsualPerson russian = (UsualPerson) context.getBean("russianPerson", Person.class);
 		UsualPerson american = (UsualPerson) context.getBean("americanPerson", Person.class);
+        Group group = context.getBean(Group.class);
 
 		assertEquals(expectedRussianPerson, russian);
 		assertEquals(expectedAmericanPerson, american);
@@ -58,6 +57,8 @@ public class HelloWorldTest {
 
 		assertNotEquals(russianPerson, americanPerson);
 
+		assertEquals(101, group.getRoomNumber());
+
 		System.out.println("Russian BeanFactory:\n" + russian);
 		System.out.println("American BeanFactory:\n" + american);
 
@@ -65,6 +66,8 @@ public class HelloWorldTest {
 		System.out.println("American Autowired:\n" + americanPerson);
         System.out.println("Canadian Resource:\n" + canadianPerson);
         System.out.println("Default:\n" + defaultPerson);
+
+        System.out.println("Group:\n" + group);
 	}
 
 	private UsualPerson getRussianPerson() {

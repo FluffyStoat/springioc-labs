@@ -32,6 +32,12 @@
         <property name="country" ref="canada"/>
     </bean>
 
+    <bean id="group" class="com.luxoft.springioc.lab1.model.Group" scope="prototype" autowire="constructor">
+        <property name="name" value="Java cource" />
+    </bean>
+
+    <bean id="room" class="com.luxoft.springioc.lab1.model.Room" p:number="101"/>
+
     <bean id="defaultPerson" class="com.luxoft.springioc.lab1.model.UsualPerson" scope="prototype"
           factory-method="createInstance">
         <property name="country" ref="default"/>
