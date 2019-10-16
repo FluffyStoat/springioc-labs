@@ -82,4 +82,24 @@
         <constructor-arg value="Canada" />
         <constructor-arg value="Ca" />
     </bean>
+
+    <bean id="car" class="com.luxoft.springioc.lab1.model.Car" autowire="byType"/>
+
+    <bean id="engine" class="com.luxoft.springioc.lab1.model.Engine">
+        <property name="name" value="V8"/>
+    </bean>
+
+    <bean id="port" class="com.luxoft.springioc.lab1.model.Port" autowire="byName">
+        <property name="name" value="Tortuga"/>
+    </bean>
+
+    <bean id="warrior" class="com.luxoft.springioc.lab1.model.Type">
+        <property name="typeName" value="warrior"/>
+        <property name="isSupports" value="true"/>
+    </bean>
+
+    <bean id="civil" class="com.luxoft.springioc.lab1.model.Type">
+        <property name="typeName" value="civil"/>
+        <property name="isSupports" value="true"/>
+    </bean>
 </beans>

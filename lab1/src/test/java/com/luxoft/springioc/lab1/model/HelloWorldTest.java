@@ -13,7 +13,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import javax.annotation.Resource;
 
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertNotNull;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -42,6 +41,10 @@ public class HelloWorldTest {
     private Group resourceGroup;
     @Autowired
     private Room test;
+    @Autowired
+	private Car car;
+	@Autowired
+	private Port port;
 
 	private Person expectedRussianPerson;
 	private Person expectedAmericanPerson;
@@ -91,6 +94,11 @@ public class HelloWorldTest {
         System.out.println("Resource group:\n" + resourceGroup);
 
 		System.out.println("Room:\n" + test);
+
+		System.out.println("Car Engine 1:\n" + car.getFirstEngine());
+		System.out.println("Car Engine 2:\n" + car.getSecondEngine());
+
+		System.out.println("Port:\n" + port);
 	}
 
 	private UsualPerson getRussianPerson() {

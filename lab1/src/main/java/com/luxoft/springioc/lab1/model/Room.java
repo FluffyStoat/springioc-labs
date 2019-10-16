@@ -28,6 +28,6 @@ public class Room {
 
     @Override
     public String toString() {
-        return String.valueOf(number);
+        return number + "\n";
     }
 }

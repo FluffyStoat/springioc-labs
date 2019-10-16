@@ -30,6 +30,6 @@ public class Group implements Serializable {
 
     @Override
     public String toString() {
-        return String.format("Group name: %s Room number: %s", name, room.getNumber());
+        return String.format("Group name: %s Room number: %s\n", name, room.getNumber());
     }
 }
