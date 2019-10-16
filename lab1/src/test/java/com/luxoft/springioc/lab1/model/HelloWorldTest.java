@@ -12,12 +12,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
-	"classpath:application-context.xml",
+"classpath:application-context.xml",
 })
 public class HelloWorldTest {
 	private static final String APPLICATION_CONTEXT_XML_FILE_NAME = "classpath:application-context.xml";
@@ -30,6 +29,8 @@ public class HelloWorldTest {
     private Person canadianPerson;
     @Autowired
     private Person defaultPerson;
+    @Resource(name = "group")
+    private Group resourceGroup;
 
 	private Person expectedRussianPerson;
 	private Person expectedAmericanPerson;
@@ -58,6 +59,7 @@ public class HelloWorldTest {
 		assertNotEquals(russianPerson, americanPerson);
 
 		assertEquals(101, group.getRoomNumber());
+		assertNotNull(resourceGroup);
 
 		System.out.println("Russian BeanFactory:\n" + russian);
 		System.out.println("American BeanFactory:\n" + american);
@@ -68,6 +70,7 @@ public class HelloWorldTest {
         System.out.println("Default:\n" + defaultPerson);
 
         System.out.println("Group:\n" + group);
+        System.out.println("Resource group:\n" + resourceGroup);
 	}
 
 	private UsualPerson getRussianPerson() {
