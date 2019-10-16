@@ -36,11 +36,23 @@
         <property name="name" value="Java cource" />
     </bean>
 
-    <bean id="room" class="com.luxoft.springioc.lab1.model.Room" p:number="101"/>
+    <bean id="room" class="com.luxoft.springioc.lab1.model.Room" p:number="101">
+        <property name="properties">
+            <props>
+                <prop key="quantity">15</prop>
+                <prop key="isNetworkPresent">true</prop>
+            </props>
+        </property>
+    </bean>
 
     <bean id="defaultPerson" class="com.luxoft.springioc.lab1.model.UsualPerson" scope="prototype"
           factory-method="createInstance">
-        <property name="country" ref="default"/>
+        <property name="country">
+            <bean class="com.luxoft.springioc.lab1.model.Country"
+                  p:id="4"
+                  p:name="Default"
+                  p:codeName="Def"/>
+        </property>
     </bean>
 
     <bean id="russia" class="com.luxoft.springioc.lab1.model.Country">
@@ -60,9 +72,4 @@
         <constructor-arg value="Canada" />
         <constructor-arg value="Ca" />
     </bean>
-
-    <bean id="default" class="com.luxoft.springioc.lab1.model.Country"
-        p:id="4"
-        p:name="Default"
-        p:codeName="Def"/>
 </beans>

@@ -14,9 +14,10 @@ import javax.annotation.Resource;
 
 import static org.junit.Assert.*;
 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
-"classpath:application-context.xml",
+	"classpath:application-context.xml",
 })
 public class HelloWorldTest {
 	private static final String APPLICATION_CONTEXT_XML_FILE_NAME = "classpath:application-context.xml";
@@ -49,6 +50,7 @@ public class HelloWorldTest {
 		UsualPerson russian = (UsualPerson) context.getBean("russianPerson", Person.class);
 		UsualPerson american = (UsualPerson) context.getBean("americanPerson", Person.class);
         Group group = context.getBean(Group.class);
+        Room room = group.getRoom();
 
 		assertEquals(expectedRussianPerson, russian);
 		assertEquals(expectedAmericanPerson, american);
@@ -58,7 +60,9 @@ public class HelloWorldTest {
 
 		assertNotEquals(russianPerson, americanPerson);
 
-		assertEquals(101, group.getRoomNumber());
+		assertEquals(101, room.getNumber());
+		assertEquals("15", room.getProperties().getProperty("quantity"));
+		assertEquals("true", room.getProperties().getProperty("isNetworkPresent"));
 		assertNotNull(resourceGroup);
 
 		System.out.println("Russian BeanFactory:\n" + russian);

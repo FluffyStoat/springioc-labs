@@ -24,8 +24,8 @@ public class Group implements Serializable {
         this.name = name;
     }
 
-    public int getRoomNumber() {
-        return room != null ? room.getNumber() : -1;
+    public Room getRoom() {
+        return room;
     }
 
     @Override
