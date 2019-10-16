@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import javax.annotation.Resource;
 
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -21,9 +22,16 @@ import static org.junit.Assert.*;
 })
 public class HelloWorldTest {
 	private static final String APPLICATION_CONTEXT_XML_FILE_NAME = "classpath:application-context.xml";
+/*
+	//Get context from test scope.
+	@Autowired
+	private ApplicationContext context;
+*/
 
 	@Autowired
 	private Person russianPerson;
+	@Autowired
+	private Person russianPerson2;
 	@Autowired
 	private Person americanPerson;
     @Resource(name = "canadian")
@@ -65,10 +73,14 @@ public class HelloWorldTest {
 		assertEquals("true", room.getProperties().getProperty("isNetworkPresent"));
 		assertNotNull(resourceGroup);
 
+		assertNotNull(russianPerson2);
+
 		System.out.println("Russian BeanFactory:\n" + russian);
 		System.out.println("American BeanFactory:\n" + american);
 
 		System.out.println("Russian Autowired:\n" + russianPerson);
+		System.out.println("Russian Autowired2:\n" + russianPerson2);
+
 		System.out.println("American Autowired:\n" + americanPerson);
         System.out.println("Canadian Resource:\n" + canadianPerson);
         System.out.println("Default:\n" + defaultPerson);
