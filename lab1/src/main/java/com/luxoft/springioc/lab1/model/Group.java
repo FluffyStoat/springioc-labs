@@ -10,7 +10,7 @@ public class Group implements Serializable {
     private static final long serialVersionUID = -8861623800888202482L;
 
     private String name;
-    private Room room;
+    private final Room room;
 
     public Group(Room room) {
         this.room = room;
