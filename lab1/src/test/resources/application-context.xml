@@ -95,7 +95,7 @@
 
     <bean id="warrior" class="com.luxoft.springioc.lab1.model.Type">
         <property name="typeName" value="warrior"/>
-        <property name="isSupports" value="true"/>
+        <property name="isSupports" value="false"/>
     </bean>
 
     <bean id="civil" class="com.luxoft.springioc.lab1.model.Type">
