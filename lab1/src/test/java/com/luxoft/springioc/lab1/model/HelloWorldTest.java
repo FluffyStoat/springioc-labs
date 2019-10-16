@@ -40,6 +40,8 @@ public class HelloWorldTest {
     private Person defaultPerson;
     @Resource(name = "group")
     private Group resourceGroup;
+    @Autowired
+    private Room test;
 
 	private Person expectedRussianPerson;
 	private Person expectedAmericanPerson;
@@ -87,6 +89,8 @@ public class HelloWorldTest {
 
         System.out.println("Group:\n" + group);
         System.out.println("Resource group:\n" + resourceGroup);
+
+		System.out.println("Room:\n" + test);
 	}
 
 	private UsualPerson getRussianPerson() {

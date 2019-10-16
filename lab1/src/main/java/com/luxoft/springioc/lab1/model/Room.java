@@ -25,4 +25,9 @@ public class Room {
     public void setProperties(Properties properties) {
         this.properties = properties;
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(number);
+    }
 }
