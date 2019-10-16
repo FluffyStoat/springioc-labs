@@ -4,7 +4,7 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="russianPerson" class="com.luxoft.springioc.lab1.model.UsualPerson" scope="prototype">
+    <bean id="russianPerson" class="com.luxoft.springioc.lab1.model.UsualPerson">
         <constructor-arg value="35" index="0"/>
         <constructor-arg value="175" index="1"/>
         <constructor-arg value="true" index="2"/>
@@ -13,7 +13,7 @@
         <property name="country" ref="russia"/>
     </bean>
 
-    <bean id="russianPerson2" class="com.luxoft.springioc.lab1.model.UsualPerson" scope="prototype">
+    <bean id="russianPerson2" class="com.luxoft.springioc.lab1.model.UsualPerson">
         <constructor-arg value="23" index="0"/>
         <constructor-arg value="167" index="1"/>
         <constructor-arg value="false" index="2"/>
@@ -22,7 +22,7 @@
     </bean>
 
 
-    <bean id="americanPerson" class="com.luxoft.springioc.lab1.model.UsualPerson" scope="prototype">
+    <bean id="americanPerson" class="com.luxoft.springioc.lab1.model.UsualPerson">
         <property name="age" value="29"/>
         <property name="height" value="173"/>
         <property name="programmer" value="true"/>
@@ -36,13 +36,13 @@
         </property>
     </bean>
 
-    <bean id="canadianPerson" name="canadian" class="com.luxoft.springioc.lab1.model.UsualPerson" scope="prototype">
+    <bean id="canadianPerson" name="canadian" class="com.luxoft.springioc.lab1.model.UsualPerson">
         <property name="age" value="29"/>
         <property name="name" value="John Smith"/>
         <property name="country" ref="canada"/>
     </bean>
 
-    <bean id="group" class="com.luxoft.springioc.lab1.model.Group" scope="prototype" autowire="constructor">
+    <bean id="group" class="com.luxoft.springioc.lab1.model.Group" autowire="constructor">
         <property name="name" value="Java cource" />
     </bean>
 
@@ -55,7 +55,7 @@
         </property>
     </bean>
 
-    <bean id="defaultPerson" class="com.luxoft.springioc.lab1.model.UsualPerson" scope="prototype"
+    <bean id="defaultPerson" class="com.luxoft.springioc.lab1.model.UsualPerson"
           factory-method="createInstance">
         <property name="country">
             <bean class="com.luxoft.springioc.lab1.model.Country"
