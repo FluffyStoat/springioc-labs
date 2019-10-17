@@ -21,9 +21,8 @@ public class SpringTCFAppTest {
 
     private UsualPerson expectedPerson;
 
-
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         expectedPerson = getExpectedPerson();
     }
 
@@ -47,7 +46,7 @@ public class SpringTCFAppTest {
 
         person.setCountry(country);
 
-        List<String> contacts = new ArrayList<String>();
+        List<String> contacts = new ArrayList<>();
         contacts.add("asd@asd.ru");
         contacts.add("+7-234-456-67-89");
 
