@@ -1,10 +1,9 @@
 package com.luxoft.springioc.lab3.model;
 
-import java.io.Serializable;
+import org.springframework.stereotype.Service;
 
-public class Country implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+@Service("country")
+public class Country {
 
     private int id;
 

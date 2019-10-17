@@ -2,5 +2,5 @@
 .idea/
 build
 *.iml
-/lab1/out
-/lab1/build
+/lab*/out
+/lab*/build

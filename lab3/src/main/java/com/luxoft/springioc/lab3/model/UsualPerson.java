@@ -1,15 +1,17 @@
 package com.luxoft.springioc.lab3.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-//@Component("person")
+@Service("person")
 public class UsualPerson implements Person {
 
     public static int createdPersons = 0;
 
-    //    @Value("${person.id}")
+    @Value("${person.id}")
     private int id;
 
     private String name;

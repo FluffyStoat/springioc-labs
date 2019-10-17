@@ -4,6 +4,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.support.AbstractApplicationContext;
 
 import java.util.ArrayList;
@@ -11,6 +13,8 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
+@Configuration
+@ImportResource("classpath:application-context.xml")
 public class SimpleAppTest {
 
     private AbstractApplicationContext context;
@@ -25,9 +29,7 @@ public class SimpleAppTest {
 
     @Test
     public void testInitPerson() {
-        UsualPerson person = (UsualPerson) context.getBean("person");
-//		FYI: Another way to achieve the bean
-//		person = context.getBean(UsualPerson.class);
+		Person person = context.getBean(UsualPerson.class);
         assertEquals(expectedPerson, person);
         System.out.println(person);
     }
@@ -46,7 +48,7 @@ public class SimpleAppTest {
 
         person.setCountry(country);
 
-        List<String> contacts = new ArrayList<String>();
+        List<String> contacts = new ArrayList<>();
         contacts.add("asd@asd.ru");
         contacts.add("+7-234-456-67-89");
 
