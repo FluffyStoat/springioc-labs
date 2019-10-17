@@ -43,7 +43,7 @@
     </bean>
 
     <bean id="group" class="com.luxoft.springioc.lab1.model.Group" autowire="constructor">
-        <property name="name" value="Java cource" />
+        <property name="name" value="Java cource"/>
     </bean>
 
     <bean id="room" class="com.luxoft.springioc.lab1.model.Room" p:number="101">
@@ -72,15 +72,15 @@
     </bean>
 
     <bean id="usa" class="com.luxoft.springioc.lab1.model.Country">
-        <constructor-arg value="2" />
-        <constructor-arg value="Usa" />
-        <constructor-arg value="US" />
+        <constructor-arg value="2"/>
+        <constructor-arg value="Usa"/>
+        <constructor-arg value="US"/>
     </bean>
 
     <bean id="canada" class="com.luxoft.springioc.lab1.model.Country">
-        <constructor-arg value="3" />
-        <constructor-arg value="Canada" />
-        <constructor-arg value="Ca" />
+        <constructor-arg value="3"/>
+        <constructor-arg value="Canada"/>
+        <constructor-arg value="Ca"/>
     </bean>
 
     <bean id="car" class="com.luxoft.springioc.lab1.model.Car" autowire="byType"/>
