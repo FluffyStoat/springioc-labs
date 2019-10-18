@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service("person")
+@Component("person")
 @PropertySource("classpath:person.properties")
 public class UsualPerson implements Person, InitializingBean, DisposableBean {
 
