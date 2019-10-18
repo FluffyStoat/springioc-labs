@@ -4,12 +4,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.support.AbstractApplicationContext;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-
+@ImportResource("classpath:application-context.xml")
 public class RegistrationTest {
 
     private AbstractApplicationContext context;
