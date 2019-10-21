@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+    <context:component-scan base-package="com.luxoft.springioc.spel_task.model"/>
+
+    <bean id="county" name="countryXml" class="com.luxoft.springioc.spel_task.model.Country">
+        <property name="name" value="Russian"/>
+        <property name="id" value="1"/>
+        <property name="language">
+            <bean class="com.luxoft.springioc.spel_task.model.Language">
+                <property name="id" value="1"/>
+                <property name="name" value="Russian"/>
+                <property name="code" value="Ru"/>
+            </bean>
+        </property>
+    </bean>
+
+</beans>
