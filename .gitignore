@@ -4,3 +4,4 @@ build
 *.iml
 /lab*/out
 /lab*/build
+*/out
