@@ -12,26 +12,23 @@ import static org.junit.Assert.assertEquals;
 
 public class SimpleAppTest {
 
-    protected static final String APPLICATION_CONTEXT_XML_FILE_NAME = "classpath:application-context.xml";
+    private static final String APPLICATION_CONTEXT_XML_FILE_NAME = "classpath:application-context.xml";
 
     private AbstractApplicationContext context;
 
     private UsualPerson expectedPerson;
 
     @Before
-    public void setUp() throws Exception {
-        context = new ClassPathXmlApplicationContext(
-            APPLICATION_CONTEXT_XML_FILE_NAME);
+    public void setUp() {
+        context = new ClassPathXmlApplicationContext(APPLICATION_CONTEXT_XML_FILE_NAME);
         expectedPerson = getExpectedPerson();
     }
 
     @Test
     public void testInitPerson() {
-        UsualPerson person = (UsualPerson) context.getBean("person");
-//		FYI: Another way to achieve the bean
-//		person = context.getBean(UsualPerson.class);
-        assertEquals(expectedPerson, person);
+		Person person = context.getBean(UsualPerson.class);
         System.out.println(person);
+        assertEquals(expectedPerson, person);
     }
 
     private UsualPerson getExpectedPerson() {
@@ -48,7 +45,7 @@ public class SimpleAppTest {
 
         person.setCountry(country);
 
-        List<String> contacts = new ArrayList<String>();
+        List<String> contacts = new ArrayList<>();
         contacts.add("asd@asd.ru");
         contacts.add("+7-234-456-67-89");
 
