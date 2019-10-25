@@ -7,8 +7,8 @@ allprojects {
 
     dependencies {
         compile group: 'org.springframework', name: 'spring-context', version: '5.2.0.RELEASE'
-        testCompile group: 'junit', name: 'junit', version: '4.12'
         testCompile group: 'org.springframework', name: 'spring-test', version: '5.2.0.RELEASE'
+        testCompile group: 'junit', name: 'junit', version: '4.12'
         compile group: 'org.aspectj', name: 'aspectjtools', version: '1.9.4'
     }
 }

@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="moscowBean" class="com.luxoft.springel.lab4.City">
+		<property name="id" value="1" />
+		<property name="name" value="Moscow" />
+		<property name="population" value="11000000" />
+	</bean>
 
 	<bean id="russianPersonBean" class="com.luxoft.springel.lab4.UsualPerson">
 		<property name="id" value="1" />
@@ -25,13 +29,7 @@
 		<property name="name" value="Russia" />
 		<property name="codeName" value="RU" />
 		<property name="capital" value="#{moscowBean}" />
-		<!--<property name="fullCapitalInfo" value="#{moscowBean.getFullCityInfo()}" />-->
-	</bean>
-
-	<bean id="moscowBean" class="com.luxoft.springel.lab4.City">
-		<property name="id" value="1" />
-		<property name="name" value="Moscow" />
-		<property name="population" value="11000000" />
+		<property name="fullCapitalInfo" value="#{moscowBean.getFullCityInfo()}" />
 	</bean>
 
 	<bean id="operatorsBean" class="com.luxoft.springel.lab4.Operators" >

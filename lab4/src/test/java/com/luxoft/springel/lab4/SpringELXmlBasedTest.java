@@ -24,7 +24,7 @@ public class SpringELXmlBasedTest {
 
 	@Test
 	public void testInitCountry() {
-		Country country = (Country)  context.getBean("russiaBean");
+		Country country = (Country) context.getBean("russiaBean");
 		assertEquals(expectedCountry, country);
 		assertEquals("Moscow, population: 11000000", country.getFullCapitalInfo());
 		System.out.println(country);

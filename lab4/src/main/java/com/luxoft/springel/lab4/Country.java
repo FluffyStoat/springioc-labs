@@ -65,7 +65,7 @@ public class Country implements Serializable {
 	public void setFullCapitalInfo(String fullCapitalInfo) {
 		this.fullCapitalInfo = fullCapitalInfo;
 	}
-	
+
 	public String toString() {
 		return id + ". " + name + " (" + codeName + ")";
 	}
