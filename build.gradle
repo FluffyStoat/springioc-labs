@@ -10,5 +10,9 @@ allprojects {
         testCompile group: 'org.springframework', name: 'spring-test', version: '5.2.0.RELEASE'
         testCompile group: 'junit', name: 'junit', version: '4.12'
         compile group: 'org.aspectj', name: 'aspectjtools', version: '1.9.4'
+        compile group: 'org.springframework', name: 'spring-orm', version: '5.2.0.RELEASE'
+        compile group: 'org.hibernate', name: 'hibernate-core', version: '5.3.7.Final'
+        compile group: 'org.hibernate.javax.persistence', name: 'hibernate-jpa-2.1-api', version: '1.0.2.Final'
+        testCompile group: 'org.hsqldb', name: 'hsqldb', version: '2.5.0'
     }
 }

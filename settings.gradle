@@ -5,4 +5,6 @@ include 'lab3'
 include 'spel-task'
 include 'lab4'
 include 'lab5'
+include 'lab-1-jdbc'
+include 'lab-2-orm'
 
