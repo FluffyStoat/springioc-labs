@@ -9,23 +9,50 @@ import com.luxoft.springdb.lab2.dao.CountryDao;
 import com.luxoft.springdb.lab2.model.Country;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceContext;
+
 @Repository
-public class CountryJpaDaoImpl extends HibernateDaoSupport implements CountryDao {
+public class CountryJpaDaoImpl  implements CountryDao {
+	protected EntityManagerFactory entityManagerFactory;
+
+	@PersistenceContext
+	public void setEntityManagerFactory(EntityManagerFactory entityManagerFactory) {
+		this.entityManagerFactory = entityManagerFactory;
+	}
 
 	@Override
 	@Transactional()
 	public void save(Country country) {
-		getHibernateTemplate().save(country);
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+		entityManager.persist(country);
+		entityManager.getTransaction().commit();
+		entityManager.close();
 	}
 
 	@Override
 	public List<Country> getAllCountries() {
-		return getHibernateTemplate().loadAll(Country.class);
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+		List<Country> countries = entityManager.createQuery("from Country", Country.class).getResultList();
+		entityManager.getTransaction().commit();
+		entityManager.close();
+		return countries;
 	}
 
 	@Override
 	public Country getCountryByName(String name) {
-		//return getHibernateTemplate().l(Country.class, name);
-		return null;
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+
+		Country country = entityManager.createQuery("select c from Country c where c.name like :name", Country.class)
+			.getSingleResult();
+
+		entityManager.getTransaction().commit();
+		entityManager.close();
+
+		return country;
 	}
 }
